@@ -1,0 +1,8 @@
+fastapi==0.115.2
+hypercorn==0.17.3
+SQLAlchemy==2.0.36
+psycopg2-binary==2.9.10
+requests==2.32.3
+dlt==1.8.1
+python-dotenv==1.0.1
+setuptools<81

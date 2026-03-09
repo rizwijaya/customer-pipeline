@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Mock Server (Flask)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/mock-server/app.py",
+      "cwd": "${workspaceFolder}/mock-server",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "name": "Pipeline Service (FastAPI via Hypercorn)",
+      "type": "python",
+      "request": "launch",
+      "module": "hypercorn",
+      "cwd": "${workspaceFolder}/pipeline-service",
+      "args": [
+        "main:app",
+        "--bind",
+        "${env:APP_HOST}:${env:APP_PORT}"
+      ],
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run Both Services",
+      "configurations": [
+        "Mock Server (Flask)",
+        "Pipeline Service (FastAPI via Hypercorn)"
+      ]
+    }
+  ]
+}
